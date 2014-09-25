@@ -1,9 +1,9 @@
 # Pyramboia
 
 
-| A web interface for XML/SOAP tests
+A web interface for XML/SOAP tests.
 
-Pyramboia is a Django application to run XML/SOAP tests like SoapUI as a simple web interface to test webservices. You can set targets, headers and arguments. Also you can run a assert on the result and setup a threshold for example.
+Pyramboia is a Django application to run XML/SOAP tests like SoapUI as a simple web interface. You can set targets, headers and arguments. Also you can run a assert on the result and setup a threshold for example.
 
 ### Screenshots
 
