@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>All arguments <a href="{% url 'argument-create' %}" class="btn btn-default btn-sm pull-right"><i class="glyphicon glyphicon-plus-sign"></i> Add argument</a></h1>
+    <hr>
+    {% if argument_list %}
+        <ul>
+        {% for argument in argument_list %}       
+            <li><a href="{{ argument.get_absolute_url }}">{{ argument }}</a></li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No arguments.</p>
+    {% endif %}
+{% endblock %}

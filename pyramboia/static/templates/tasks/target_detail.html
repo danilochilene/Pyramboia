@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1 style="margin-bottom:30px;">target {{ object }}
+        <span class="pull-right">
+            <a class="btn btn-primary" href="edit/">Edit target</a>
+            <a class="btn btn-danger" href="delete/">Delete target</a>
+        </span>
+    </h1>
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="well">
+                <dl class="dl-horizontal">
+                    <dt>Name</dt>
+                    <dd>{{ target.name}}</dd>
+                    <dt>URL</dt>
+                    <dd>{{ target.url }}</dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+
+

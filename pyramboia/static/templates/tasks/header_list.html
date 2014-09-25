@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>All Headers <a href="{% url 'header-create' %}" class="btn btn-default btn-sm pull-right"><i class="glyphicon glyphicon-plus-sign"></i> Add Header</a></h1>
+    <hr>
+    {% if header_list %}
+        <ul>
+        {% for header in header_list %}       
+            <li><a href="{{ header.get_absolute_url }}">{{ header }}</a></li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No headers.</p>
+    {% endif %}
+{% endblock %}

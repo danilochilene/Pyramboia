@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+        <div class="col-sm-9 col-sm-offset-1 col-md-10 col-md-offset-1 main">
+          <h2 class="sub-header">Projects</h2>
+          <div class="table table-responsive">
+            <a href="/addproject"><span class="label label-primary">Add a new project</a></span>
+            <table class="table table-condensed table-striped">
+              <thead>
+                <tr>
+                  <th class="col-sm-1">Project Name</th>
+                  <th class="col-sm-1">Total tasks</th>
+                </tr>
+              </thead>
+              <tbody>
+                  {% for project in projects %}
+                <tr>
+                   <td>{{ project.project_name }}</td>
+                   <td>{{ project.tasks_set.all.count }}</td>
+                   {% endfor %}
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>All Targets <a href="{% url 'target-create' %}" class="btn btn-default btn-sm pull-right"><i class="glyphicon glyphicon-plus-sign"></i> Add Target</a></h1>
+    <hr>
+    {% if target_list %}
+        <ul>
+        {% for target in target_list %}       
+            <li><a href="{{ target.get_absolute_url }}">{{ target }}</a></li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No targets.</p>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>All Projects <a href="{% url 'project-create' %}" class="btn btn-default btn-sm pull-right"><i class="glyphicon glyphicon-plus-sign"></i> Add Project</a></h1>
+    <hr>
+    {% if project_list %}
+        <ul>
+        {% for project in project_list %}       
+            <li><a href="{{ project.get_absolute_url }}">{{ project }}</a></li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No projects.</p>
+    {% endif %}
+{% endblock %}

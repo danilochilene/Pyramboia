@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>All tasks <a href="{% url 'task-create' %}" class="btn btn-default btn-sm pull-right"><i class="glyphicon glyphicon-plus-sign"></i> Add task</a></h1>
+    <hr>
+    {% if task_list %}
+        <ul>
+        {% for task in task_list %}       
+            <li><a href="{{ task.get_absolute_url }}">{{ task }}</a></li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No tasks.</p>
+    {% endif %}
+{% endblock %}

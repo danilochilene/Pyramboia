@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+<script>
+$('.row .btn').on('click', function(e) {
+    e.preventDefault();
+    var $this = $(this);
+    var $collapse = $this.closest('.collapse-group').find('.collapse');
+    $collapse.collapse('toggle');
+});
+</script>
+
+{% block content %}
+          <h2 class="sub-header">Result of test of {{ tasks.task_name }} </h2>
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>URL</th>
+                  <th>XML Request</th>
+                  <th>Threshold</th>
+                  <th>Headers</th>
+                  <th>Assert</th>
+                  <th>Time spent running</th>
+                  <th>Argument</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>{{ tasks.task_name }}</td>
+                  <td>{{ tasks.url }}</td>
+                  <td><a href="/view_task_xml/{{ tasks.id }}" target="_blank">Click here </a></td>
+                  <td>{{ tasks.threshold }}</td>
+                  <td>{{ headers_full }}</td>
+                  <td>{{ tasks.Assert }}</td>
+                  <td>{{ time_total }} seconds</td>
+                </tr>
+              </tbody>
+            </table>
+            <h4>Status: {{ text }} - Response time is {{ time_total }} </h3>
+            <h4>Assert: {{ nada }}</h3>
+            <h4>Argument: {{ argument }}</h3>
+            <h3>XML Result</h1>   
+        <pre>{{ result }}</pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
+{% endblock %}
