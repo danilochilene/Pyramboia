@@ -53,15 +53,20 @@ def queueTask(id=None, arguments={}):
         else:
             text = 'OK'
         args = arguments
-        for argument in Argument.objects.filter(argument=tasks.arguments.argument):
-            valor = ''
-            try:
-                tree = etree.XML(response)
-                valor = tree.xpath("//*[local-name() = '{0}']".format(tasks.arguments.argument))[0].text
-            except:
+        if argument == None:
+            args = ['']
+            return result, time_total, text, headers_full, tasks, args
+        elif len(Argument.objects.filter(argument=tasks.arguments.argument)) > 0 and not None:
+            for argument in Argument.objects.filter(argument=tasks.arguments.argument):
                 valor = ''
-            args.setdefault(argument.value, valor)
-        return result, time_total, text, headers_full, tasks, args
+                try:
+                    tree = etree.XML(response)
+                    valor = tree.xpath("//*[local-name() = '{0}']".format(tasks.arguments.argument))[0].text
+                except:
+                    valor = ''
+                args.setdefault(argument.value, valor)
+            return result, time_total, text, headers_full, tasks, args
+
 
 
 @jsonrpc_method('tasks.run')
